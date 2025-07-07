@@ -9,9 +9,9 @@ public class TablesOfSquaresCube {
 //        int cube = number * number * number;
 
 
-System.out.printf("%-7s%-8s%-8s%n","Number","Square","Cube");
+System.out.println("Number Square Cube");
 System.out.println("-----------------------------------");
-System.out.printf("%-7d%-8d%-8d%n", 0 * 0, 0 * 0 * 0 );
+System.out.println("0\t" +  (0 * 0) + "\t" + (0 * 0 * 0 ));
 System.out.println("1\t" + (1 * 1) + "\t" + (1 * 1 * 1));
 System.out.println("2\t" + (2 * 2) + "\t" + (2 * 2 * 2));
 System.out.println("3\t" + (3 * 3) + "\t" + (3 * 3 * 3));
