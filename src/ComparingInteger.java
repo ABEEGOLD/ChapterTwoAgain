@@ -8,8 +8,20 @@ public class ComparingInteger {
 
         int square = number * number;
 
-        if (number > square) {
-            System.out.printf("The %d * %d%n is greater than 100:", number, square);
+        if (number > 100 && square >100) {
+            System.out.printf("The %d  is greater than 100:", number);
+        }
+
+        if (number == 100 && square == 100) {
+            System.out.printf("The %d  is equal than 100:", number);
+        }
+
+        if (number != 100 && square != 100) {
+            System.out.printf("The %d  is less than 100:", number);
+        }
+
+        if (number < 100 && square < 100) {
+            System.out.printf("The %d is less than 100:", number);
         }
         //if (number != 100)
             //System.out.printf("is equal to 100: %d == %d%n", number,100);
