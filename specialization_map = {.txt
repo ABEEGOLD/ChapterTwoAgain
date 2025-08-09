@@ -1,0 +1,6 @@
+specialization_map = {
+    "surgeon": Surgeon,
+    "pediatrician": Pediatrician,
+    "cardiologist": Cardiologist,
+    "neurologist": Neurologist
+}
