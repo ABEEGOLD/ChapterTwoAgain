@@ -1,0 +1,48 @@
+import datetime
+from Contact_details import ContactDetails
+
+class DoctorProfile:
+    def __init__(self, doctor_id: str, date_of_birth: str, specialization: str, contact_details: ContactDetails):
+        self.doctor_id = doctor_id
+        self.date_of_birth = self._parse_date(date_of_birth)
+        self.specialization = specialization
+        self.contact_details = contact_details
+
+    def _parse_date(self, date_str: str) -> datetime.date:
+        """Convert string to datetime.date object for proper date handling."""
+        try:
+            return datetime.datetime.strptime(date_str, "%Y-%m-%d").date()
+        except ValueError:
+            raise ValueError("Invalid date format. Use YYYY-MM-DD.")
+
+    def calculate_age(self) -> int:
+        """Calculate the doctor's age based on date of birth."""
+        today = datetime.date.today()
+        return today.year - self.date_of_birth.year - (
+            (today.month, today.day) < (self.date_of_birth.month, self.date_of_birth.day)
+        )
+
+    def introduce(self):
+        """Simple introduction message."""
+        print(f"Dr. ID {self.doctor_id}: Specialized in {self.specialization}. Age: {self.calculate_age()}.")
+
+    def update_contact(self, new_contact: ContactDetails):
+        """Update contact information."""
+        self.contact_details = new_contact
+
+
+
+
+# Sample contact details object
+contact = ContactDetails(phone="08012345678", email="dr@example.com", address="123 Clinic Ave")
+
+# Create a doctor profile
+doctor = DoctorProfile("D1001", "1980-06-15", "Cardiologist", contact)
+
+# Interact with the object
+doctor.introduce()
+print("Doctor's age:", doctor.calculate_age())
+
+# Update contact if needed
+new_contact = ContactDetails(phone="08123456789", email="newdr@example.com", address="456 New Road")
+doctor.update_contact(new_contact)
